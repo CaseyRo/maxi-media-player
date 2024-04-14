@@ -1,4 +1,7 @@
-import Vibrant from 'node-vibrant/dist/vibrant';
+// var Vibrant = require('node-vibrant');
+
+// import Vibrant from 'node-vibrant/dist/vibrant';
+import * as Vibrant from 'node-vibrant/dist/vibrant';
 
 import { CONTRAST_RATIO, COLOR_SIMILARITY_THRESHOLD } from '../const';
 
@@ -76,5 +79,11 @@ const colorGenerator = (colors) => {
   return [new backgroundColor.constructor(foregroundColor, 0).hex, backgroundColor.hex];
 };
 
-Vibrant._pipeline.generator.register('default', colorGenerator);
-export default async (picture) => new Vibrant(picture, { colorCount: 16 }).getPalette();
+export default (picture) =>
+  new Vibrant(picture, {
+    colorCount: 16,
+    generator: colorGenerator,
+  }).getPalette();
+
+// Vibrant._pipeline.generator.register('default', colorGenerator);
+// export default async (picture) => new Vibrant(picture, { colorCount: 16 }).getPalette();

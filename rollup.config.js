@@ -33,11 +33,18 @@ const plugins = [
 export default [
   {
     input: 'src/main.ts',
-    output: {
-      file: './dist/mini-media-player-bundle.js',
-      format: 'es',
-      inlineDynamicImports: true,
-    },
+    output: [
+      {
+        file: './dist/maxi-media-player-bundle.js',
+        format: 'es',
+        inlineDynamicImports: true,
+      },
+      {
+        file: '/Volumes/Docker data/docker_images/homeassistant/config/www/maxi-media-player/dist/maxi-media-player-bundle.js',
+        format: 'es',
+        inlineDynamicImports: true,
+      },
+    ],
     plugins: [...plugins],
   },
 ];
