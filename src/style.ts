@@ -93,8 +93,34 @@ const style = css`
     font-size: calc(var(--mmp-unit) * 0.35);
     --mdc-icon-button-size: calc(var(--mmp-unit));
     --mdc-icon-size: calc(var(--mmp-unit) * 0.6);
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 20vw 60vw 20vw;
+    grid-template-rows: 20vw 60vw 20vw 40vw 10vw;
+    min-height:100vh;
+  }
+  ha-card[artwork='maximal'] .blurryCover {
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-origin: padding-box;
+    background-position: 50% 50%;
+    background-size: 1000%;
+    filter: blur(24px) contrast(2) brightness(125%);
+    opacity: 0.12;
+  }
+  ha-card[artwork='maximal'].--has-artwork .mmp__bg{
+    grid-row: 2/3;
+    grid-column: 2/3;
+    opacity: var(--mmp-artwork-opacity);
+    background: transparent;
+  }
+  ha-card[artwork='maximal'].--has-artwork .mmp-player{
+    grid-column: 1/5;
+    grid-row: 4/5;
+  }
+  ha-card[artwork='maximal'].--has-artwork:before
+  {
   }
   ha-card.--group {
     box-shadow: none;
@@ -139,13 +165,6 @@ const style = css`
   ha-card[artwork='full-cover'].--has-artwork:before {
     padding-top: 56%;
   }
-  ha-card[artwork='maximal'].--has-artwork:before
-  {
-    grid-column-start: 1;
-    grid-row-start: 1;
-    grid-row-end: 1;
-    aspect-ratio: 1/1;
-  }
   ha-card[artwork='full-cover'].--has-artwork[content='music']:before,
   ha-card[artwork='full-cover-fit'].--has-artwork:before,
   {
@@ -163,15 +182,12 @@ const style = css`
     transform: translateZ(0);
     opacity: var(--mmp-bg-opacity);
   }
-  ha-card[artwork='maximal'].--has-artwork {
-    opacity: var(--mmp-artwork-opacity);
-    background: transparent;
-  }
   ha-card[artwork='material'].--has-artwork .mmp__bg,
   ha-card[artwork*='cover'].--has-artwork .mmp__bg {
     opacity: var(--mmp-artwork-opacity);
     background: transparent;
   }
+
   ha-card[artwork='material'].--has-artwork .cover {
     height: 100%;
     right: 0;

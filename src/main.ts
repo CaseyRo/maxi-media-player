@@ -168,6 +168,7 @@ class MiniMediaPlayer extends LitElement {
         artwork=${config.artwork}
         content=${this.player.content}
       >
+        ${this.renderBlurryArtwork()}
         <div class="mmp__bg">${this.renderBackground()} ${this.renderArtwork()} ${this.renderGradient()}</div>
         <div class="mmp-player">
           <div class="mmp-player__core flex" ?inactive=${this.player.idle}>
@@ -252,6 +253,15 @@ class MiniMediaPlayer extends LitElement {
 
     return html` <div class="cover" style=${styleMap(artworkStyle)}></div>
       ${this.prevThumbnail && html` <div class="cover --prev" style=${styleMap(artworkPrevStyle)}></div> `}`;
+  }
+
+  renderBlurryArtwork(): TemplateResult | undefined {
+    if (!this.thumbnail || this.config.artwork === 'default') return;
+    const blurryStyle = {
+      backgroundImage: this.thumbnail
+    };
+
+    return html` <div class="blurryCover" style=${styleMap((blurryStyle))}></div>`;
   }
 
   renderGradient(): TemplateResult | undefined {
