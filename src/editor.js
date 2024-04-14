@@ -15,7 +15,7 @@ const fireEvent = (node, type, detail = {}, options = {}) => {
   return event;
 };
 
-const OptionsArtwork = ['cover', 'full-cover', 'material', 'cover-fit', 'none'];
+const OptionsArtwork = ['cover', 'full-cover', 'material', 'cover-fit', 'none', 'maximal'];
 
 const OptionsSource = ['icon', 'full'];
 
@@ -286,4 +286,4 @@ export default class MiniMediaPlayerEditor extends LitElement {
   }
 }
 
-customElements.define('mini-media-player-editor', MiniMediaPlayerEditor);
+customElements.define('maxi-media-player-editor', MiniMediaPlayerEditor);

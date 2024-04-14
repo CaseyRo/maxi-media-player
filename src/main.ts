@@ -36,7 +36,7 @@ import { HomeAssistant, MediaPlayerEntity } from './types';
 import { Part } from 'lit-html';
 import { MiniMediaPlayerBaseConfiguration, MiniMediaPlayerConfiguration } from './config/types';
 
-@customElement('mini-media-player')
+@customElement('maxi-media-player')
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 class MiniMediaPlayer extends LitElement {
   @property({ attribute: false })
@@ -89,7 +89,7 @@ class MiniMediaPlayer extends LitElement {
 
   public static async getConfigElement() {
     await import('./editor');
-    return document.createElement('mini-media-player-editor');
+    return document.createElement('maxi-media-player-editor');
   }
 
   static get styles(): CSSResultGroup {
@@ -458,8 +458,8 @@ class MiniMediaPlayer extends LitElement {
 (window as any).customCards = (window as any).customCards || [];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 (window as any).customCards.push({
-  type: 'mini-media-player',
-  name: 'Mini Media Player',
+  type: 'maxi-media-player',
+  name: 'Maxi Media Player',
   preview: false,
-  description: 'A minimalistic yet customizable media player card',
+  description: 'A maximalistic, uncustomizable media player card',
 });

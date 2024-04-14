@@ -1,32 +1,33 @@
 import { css } from 'lit-element';
 
 const style = css`
+@import test.css
   :host {
     overflow: visible !important;
     display: block;
-    --mmp-scale: var(--mini-media-player-scale, 1);
+    --mmp-scale: var(--maxi-media-player-scale, 1);
     --mmp-unit: calc(var(--mmp-scale) * 40px);
-    --mmp-name-font-weight: var(--mini-media-player-name-font-weight, 400);
-    --mmp-accent-color: var(--mini-media-player-accent-color, var(--accent-color, #f39c12));
-    --mmp-base-color: var(--mini-media-player-base-color, var(--primary-text-color, #000));
-    --mmp-overlay-color: var(--mini-media-player-overlay-color, rgba(0, 0, 0, 0.5));
-    --mmp-overlay-color-stop: var(--mini-media-player-overlay-color-stop, 25%);
-    --mmp-overlay-base-color: var(--mini-media-player-overlay-base-color, #fff);
-    --mmp-overlay-accent-color: var(--mini-media-player-overlay-accent-color, --mmp-accent-color);
-    --mmp-text-color: var(--mini-media-player-base-color, var(--primary-text-color, #000));
-    --mmp-media-cover-info-color: var(--mini-media-player-media-cover-info-color, --mmp-text-color);
+    --mmp-name-font-weight: var(--maxi-media-player-name-font-weight, 400);
+    --mmp-accent-color: var(--maxi-media-player-accent-color, var(--accent-color, #f39c12));
+    --mmp-base-color: var(--maxi-media-player-base-color, var(--primary-text-color, #000));
+    --mmp-overlay-color: var(--maxi-media-player-overlay-color, rgba(0, 0, 0, 0.5));
+    --mmp-overlay-color-stop: var(--maxi-media-player-overlay-color-stop, 25%);
+    --mmp-overlay-base-color: var(--maxi-media-player-overlay-base-color, #fff);
+    --mmp-overlay-accent-color: var(--maxi-media-player-overlay-accent-color, --mmp-accent-color);
+    --mmp-text-color: var(--maxi-media-player-base-color, var(--primary-text-color, #000));
+    --mmp-media-cover-info-color: var(--maxi-media-player-media-cover-info-color, --mmp-text-color);
     --mmp-text-color-inverted: var(--disabled-text-color);
     --mmp-active-color: var(--mmp-accent-color);
-    --mmp-button-color: var(--mini-media-player-button-color, rgba(255, 255, 255, 0.25));
+    --mmp-button-color: var(--maxi-media-player-button-color, rgba(255, 255, 255, 0.25));
     --mmp-icon-color: var(
-      --mini-media-player-icon-color,
-      var(--mini-media-player-base-color, var(--paper-item-icon-color, #44739e))
+      --maxi-media-player-icon-color,
+      var(--maxi-media-player-base-color, var(--paper-item-icon-color, #44739e))
     );
     --mmp-icon-active-color: var(--paper-item-icon-active-color, --mmp-active-color);
     --mmp-info-opacity: 0.75;
-    --mmp-bg-opacity: var(--mini-media-player-background-opacity, 1);
-    --mmp-artwork-opacity: var(--mini-media-player-artwork-opacity, 1);
-    --mmp-progress-height: var(--mini-media-player-progress-height, 6px);
+    --mmp-bg-opacity: var(--maxi-media-player-background-opacity, 1);
+    --mmp-artwork-opacity: var(--maxi-media-player-artwork-opacity, 1);
+    --mmp-progress-height: var(--maxi-media-player-progress-height, 6px);
     --mmp-border-radius: var(--ha-card-border-radius, 12px);
     --mdc-theme-primary: var(--mmp-text-color);
     --mdc-theme-on-primary: var(--mmp-text-color);
@@ -40,8 +41,8 @@ const style = css`
   ha-card.--has-artwork[artwork='material'],
   ha-card.--has-artwork[artwork*='cover'] {
     --mmp-accent-color: var(
-      --mini-media-player-overlay-accent-color,
-      var(--mini-media-player-accent-color, var(--accent-color, #f39c12))
+      --maxi-media-player-overlay-accent-color,
+      var(--maxi-media-player-accent-color, var(--accent-color, #f39c12))
     );
     --mmp-text-color: var(--mmp-overlay-base-color);
     --mmp-text-color-inverted: #000;
@@ -49,7 +50,7 @@ const style = css`
     --mmp-icon-color: var(--mmp-text-color);
     --mmp-icon-active-color: var(--mmp-text-color);
     --mmp-info-opacity: 0.75;
-    --paper-slider-container-color: var(--mini-media-player-overlay-color, rgba(255, 255, 255, 0.75)) !important;
+    --paper-slider-container-color: var(--maxi-media-player-overlay-color, rgba(255, 255, 255, 0.75)) !important;
     --mdc-theme-primary: var(--mmp-text-color);
     --mdc-theme-on-primary: var(--mmp-text-color);
     --paper-checkbox-unchecked-color: var(--mmp-text-color);
@@ -81,10 +82,24 @@ const style = css`
     --mdc-icon-button-size: calc(var(--mmp-unit));
     --mdc-icon-size: calc(var(--mmp-unit) * 0.6);
   }
+  ha-card[artwork='maximal']{
+    cursor: default;
+    display: grid;
+    background: transparent;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    color: inherit;
+    font-size: calc(var(--mmp-unit) * 0.35);
+    --mdc-icon-button-size: calc(var(--mmp-unit));
+    --mdc-icon-size: calc(var(--mmp-unit) * 0.6);
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
   ha-card.--group {
     box-shadow: none;
     border: none;
-    --mmp-progress-height: var(--mini-media-player-progress-height, 4px);
+    --mmp-progress-height: var(--maxi-media-player-progress-height, 4px);
     --mmp-border-radius: 0px
   }
   ha-card.--more-info {
@@ -124,8 +139,16 @@ const style = css`
   ha-card[artwork='full-cover'].--has-artwork:before {
     padding-top: 56%;
   }
+  ha-card[artwork='maximal'].--has-artwork:before
+  {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    aspect-ratio: 1/1;
+  }
   ha-card[artwork='full-cover'].--has-artwork[content='music']:before,
-  ha-card[artwork='full-cover-fit'].--has-artwork:before {
+  ha-card[artwork='full-cover-fit'].--has-artwork:before,
+  {
     padding-top: 100%;
   }
   .mmp__bg {
@@ -139,6 +162,10 @@ const style = css`
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     opacity: var(--mmp-bg-opacity);
+  }
+  ha-card[artwork='maximal'].--has-artwork {
+    opacity: var(--mmp-artwork-opacity);
+    background: transparent;
   }
   ha-card[artwork='material'].--has-artwork .mmp__bg,
   ha-card[artwork*='cover'].--has-artwork .mmp__bg {
@@ -415,16 +442,16 @@ const style = css`
     padding: 0;
   }
   ha-card.--progress .mmp-player {
-    padding-bottom: calc(16px + calc(var(--mini-media-player-progress-height, 6px) - 6px));
+    padding-bottom: calc(16px + calc(var(--maxi-media-player-progress-height, 6px) - 6px));
   }
   ha-card.--progress.--group .mmp-player {
-    padding-bottom: calc(10px + calc(var(--mini-media-player-progress-height, 6px) - 6px));
+    padding-bottom: calc(10px + calc(var(--maxi-media-player-progress-height, 6px) - 6px));
   }
   ha-card.--runtime .mmp-player {
-    padding-bottom: calc(16px + 16px + var(--mini-media-player-progress-height, 0px));
+    padding-bottom: calc(16px + 16px + var(--maxi-media-player-progress-height, 0px));
   }
   ha-card.--runtime.--group .mmp-player {
-    padding-bottom: calc(16px + 12px + var(--mini-media-player-progress-height, 0px));
+    padding-bottom: calc(16px + 12px + var(--maxi-media-player-progress-height, 0px));
   }
   ha-card.--inactive .mmp-player {
     padding: 16px;
