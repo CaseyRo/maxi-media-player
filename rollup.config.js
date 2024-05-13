@@ -40,7 +40,8 @@ export default [
         inlineDynamicImports: true,
       },
       {
-        file: '/Volumes/Docker data/docker_images/homeassistant/config/www/maxi-media-player/dist/maxi-media-player-bundle.js',
+        file: '/Volumes/Datapi/home_assistant/config/www/maxi-media-player/dist/maxi-media-player-bundle.js',
+
         format: 'es',
         inlineDynamicImports: true,
       },
