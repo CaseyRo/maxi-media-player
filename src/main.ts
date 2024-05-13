@@ -170,7 +170,20 @@ class MiniMediaPlayer extends LitElement {
       >
         ${this.renderBlurryArtwork()}
         <div class="mmp__bg">${this.renderBackground()} ${this.renderArtwork()} ${this.renderGradient()}</div>
+
+
+
         <div class="mmp-player">
+          ${this.player.isActive && this.player.hasProgress
+            ? html`
+                <mmp-progress
+                  .player=${this.player}
+                  .showTime=${!this.config.hide.runtime}
+                  .showRemainingTime=${!this.config.hide.runtime_remaining}
+                >
+                </mmp-progress>
+              `
+            : ''}
           <div class="mmp-player__core flex" ?inactive=${this.player.idle}>
             ${this.renderIcon()}
             <div class="entity__info">${this.renderEntityName()} ${this.renderMediaInfo()}</div>
@@ -205,18 +218,7 @@ class MiniMediaPlayer extends LitElement {
             </mmp-group-list>
           </div>
         </div>
-        <div class="mmp__container">
-          ${this.player.isActive && this.player.hasProgress
-            ? html`
-                <mmp-progress
-                  .player=${this.player}
-                  .showTime=${!this.config.hide.runtime}
-                  .showRemainingTime=${!this.config.hide.runtime_remaining}
-                >
-                </mmp-progress>
-              `
-            : ''}
-        </div>
+
       </ha-card>
     `;
   }
